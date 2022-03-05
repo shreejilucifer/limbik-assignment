@@ -7,7 +7,7 @@ type Props = {
 
 const PageLayout = ({ children }: Props) => {
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <Layout.Header>
         <Typography.Text style={{ color: "#fff" }} strong>
           Limbik Movies

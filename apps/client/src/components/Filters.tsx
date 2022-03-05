@@ -42,6 +42,7 @@ const Filters = (props: Props) => {
         <Space direction="vertical">
           <Typography.Text>Select Year Range</Typography.Text>
           <DatePicker.RangePicker
+            inputReadOnly
             allowClear={false}
             picker="year"
             size="large"
