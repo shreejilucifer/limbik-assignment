@@ -1,3 +1,5 @@
+import { Movie } from "./movie.dto";
+
 export interface Person {
   id: number;
   name: string;
@@ -11,3 +13,8 @@ export interface Relation {
 }
 
 export type PersonRelation = { person: Person; relation: Relation };
+export type PersonRelationMovie = {
+  person: Person;
+  relation: Relation;
+  movie: Movie;
+};

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
-import { PersonRelation } from "../types/person.dto";
+import { PersonRelation, PersonRelationMovie } from "../types/person.dto";
 
 export const personsService = createApi({
   reducerPath: "personsService",
@@ -15,5 +15,20 @@ export const personsService = createApi({
     }),
   }),
 });
+
+export const getMovieByPerson = async (
+  person_id: number
+): Promise<PersonRelationMovie[] | null> => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/person/${person_id}`
+  );
+
+  if (response.status !== 200) {
+    return null;
+  }
+
+  const data = response.json();
+  return data;
+};
 
 export const { useGetPeopleQuery } = personsService;
