@@ -28,5 +28,6 @@ export const filterSlice = createSlice({
   },
 });
 
-export const { updateEndYear, updateStartYear } = filterSlice.actions;
+export const { updateEndYear, updateStartYear, setMovieId } =
+  filterSlice.actions;
 export default filterSlice.reducer;

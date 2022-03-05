@@ -3,7 +3,7 @@ import moment from "moment";
 import React from "react";
 import { useGetMoviesQuery } from "../services/movies.service";
 import { useAppDispatch, useAppSelector } from "../store";
-import { updateEndYear, updateStartYear } from "../store/filters";
+import { updateEndYear, updateStartYear, setMovieId } from "../store/filters";
 
 type Props = {};
 
@@ -23,6 +23,10 @@ const Filters = (props: Props) => {
     if (info.range === "start")
       dispatch(updateStartYear(Number(formatString[0])));
     else dispatch(updateEndYear(Number(formatString[1])));
+  };
+
+  const handleMovieSelection = (value: number) => {
+    dispatch(setMovieId(value));
   };
 
   return (
@@ -57,9 +61,12 @@ const Filters = (props: Props) => {
             disabled={
               start_year === undefined || end_year === undefined || isLoading
             }
+            onChange={handleMovieSelection}
           >
             {data?.map((movie) => (
-              <Select.Option key={movie.id}>{movie.title}</Select.Option>
+              <Select.Option key={movie.id} value={movie.id}>
+                {movie.title}
+              </Select.Option>
             ))}
           </Select>
         </Space>
