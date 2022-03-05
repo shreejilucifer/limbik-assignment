@@ -1,13 +1,12 @@
+import { Typography } from "antd";
 import type { NextPage } from "next";
-import Head from "next/head";
+import PageLayout from "../src/components/PageLayout";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <Head>
-        <title>Limbik Assignment</title>
-      </Head>
-    </div>
+    <PageLayout>
+      <Typography.Text>TBD</Typography.Text>
+    </PageLayout>
   );
 };
 
