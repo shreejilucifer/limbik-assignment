@@ -5,7 +5,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "turbo run dev --parallel"
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "start": "turbo run start"
   },
   "workspaces": [
     "apps/*"
