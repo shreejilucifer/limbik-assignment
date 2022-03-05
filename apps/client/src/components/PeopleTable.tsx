@@ -1,4 +1,5 @@
 import { Alert, Table } from "antd";
+import { useRouter } from "next/router";
 import React from "react";
 import { useGetPeopleQuery } from "../services/persons.service";
 import { useAppSelector } from "../store";
@@ -7,6 +8,7 @@ import { PersonRelation } from "../types/person.dto";
 type Props = {};
 
 const PeopleTable = (props: Props) => {
+  const router = useRouter();
   const selected_movie_id = useAppSelector(
     (state) => state.filters.selected_movie_id
   );
@@ -57,6 +59,11 @@ const PeopleTable = (props: Props) => {
       loading={isLoading}
       rowKey={(pr) => `${pr.person.id}-${pr.relation.id}`}
       pagination={{ pageSize: 5 }}
+      onRow={(record) => ({
+        onClick: () => {
+          router.push(`/person/${record.person.id}`);
+        },
+      })}
     />
   );
 };
