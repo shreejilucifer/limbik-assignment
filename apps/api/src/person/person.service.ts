@@ -18,8 +18,6 @@ export class PersonService {
       { movie_id },
     );
 
-    console.log(queryResults.records[0].get('person'));
-
     const result: { person: Person; relation: Relation }[] =
       queryResults.records.map((record) => ({
         person: new Person(record),

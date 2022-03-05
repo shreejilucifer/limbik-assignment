@@ -9,7 +9,7 @@ export class Person {
     const { properties, identity } = record.get('person');
     this.id = identity.low;
     this.name = properties.name;
-    this.born = properties.born;
+    this.born = properties.born.low;
   }
 }
 
