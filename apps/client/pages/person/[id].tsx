@@ -1,5 +1,6 @@
-import { Typography } from "antd";
+import { PageHeader } from "antd";
 import { NextPageContext } from "next";
+import { useRouter } from "next/router";
 import React from "react";
 import MovieTable from "../../src/components/MovieTable";
 import PageLayout from "../../src/components/PageLayout";
@@ -11,9 +12,13 @@ type Props = {
 };
 
 const PersonPage = ({ personRelationMovie }: Props) => {
+  const router = useRouter();
   return (
     <PageLayout>
-      <Typography.Title>{personRelationMovie[0].person.name}</Typography.Title>
+      <PageHeader
+        onBack={() => router.back()}
+        title={personRelationMovie[0].person.name}
+      />
       <MovieTable personRelationMovie={personRelationMovie} />
     </PageLayout>
   );
