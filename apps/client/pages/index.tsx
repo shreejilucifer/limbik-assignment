@@ -7,7 +7,7 @@ import PeopleTable from "../src/components/PeopleTable";
 const Home: NextPage = () => {
   return (
     <PageLayout>
-      <Space direction="vertical" size="large">
+      <Space direction="vertical" size="large" style={{ width: "100%" }}>
         <Filters />
         <PeopleTable />
       </Space>

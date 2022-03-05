@@ -56,7 +56,7 @@ const Filters = (props: Props) => {
             Select Movie from {start_year} - {end_year}
           </Typography.Text>
           <Select
-            style={{ width: 292 }}
+            style={{ width: 220 }}
             size="large"
             loading={isLoading}
             disabled={
