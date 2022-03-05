@@ -9,7 +9,9 @@ type Props = {};
 
 const Filters = (props: Props) => {
   const dispatch = useAppDispatch();
-  const { start_year, end_year } = useAppSelector((state) => state.filters);
+  const { start_year, end_year, selected_movie_id } = useAppSelector(
+    (state) => state.filters
+  );
   const { isLoading, isError, data } = useGetMoviesQuery(
     { start_year, end_year },
     { skip: start_year === undefined || end_year === undefined }
@@ -42,6 +44,14 @@ const Filters = (props: Props) => {
         <Space direction="vertical">
           <Typography.Text>Select Year Range</Typography.Text>
           <DatePicker.RangePicker
+            value={
+              start_year === undefined || end_year === undefined
+                ? undefined
+                : [
+                    moment().set("year", start_year),
+                    moment().set("year", end_year),
+                  ]
+            }
             inputReadOnly
             allowClear={false}
             picker="year"
@@ -56,6 +66,7 @@ const Filters = (props: Props) => {
             Select Movie from {start_year} - {end_year}
           </Typography.Text>
           <Select
+            value={selected_movie_id}
             style={{ width: 220 }}
             size="large"
             loading={isLoading}
