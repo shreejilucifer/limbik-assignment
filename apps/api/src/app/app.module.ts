@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MovieModule } from '../movie/movie.module';
 import { Neo4jConfig } from '../neo4j/neo4j-config.interface';
 import { Neo4jModule } from '../neo4j/neo4j.module';
 
@@ -18,6 +19,7 @@ import { Neo4jModule } from '../neo4j/neo4j.module';
         database: configService.get('NEO4J_DATABASE'),
       }),
     }),
+    MovieModule,
   ],
 })
 export class AppModule {}
