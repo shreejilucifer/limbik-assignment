@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MovieModule } from '../movie/movie.module';
 import { Neo4jConfig } from '../neo4j/neo4j-config.interface';
 import { Neo4jModule } from '../neo4j/neo4j.module';
+import { PersonModule } from '../person/person.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { Neo4jModule } from '../neo4j/neo4j.module';
       }),
     }),
     MovieModule,
+    PersonModule,
   ],
 })
 export class AppModule {}
