@@ -8,7 +8,7 @@ export class Movie {
 
   constructor(record: Record) {
     const { properties, identity } = record.get('movie');
-    this.id = identity.low;
+    this.id = identity.toNumber();
     this.title = properties.title;
     this.tagline = properties.tagline;
     this.released = properties.released.toNumber();
