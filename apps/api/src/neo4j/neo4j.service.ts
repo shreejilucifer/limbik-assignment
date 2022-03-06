@@ -11,6 +11,7 @@ export class Neo4jService implements OnApplicationShutdown {
   ) {}
 
   onApplicationShutdown(signal?: string) {
+    console.log(`Received Signal: ${signal}`);
     return this.driver.close();
   }
 

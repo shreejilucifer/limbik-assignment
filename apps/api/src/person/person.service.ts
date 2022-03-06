@@ -10,7 +10,7 @@ export class PersonService {
   async findByMovie(
     movie_id: number,
   ): Promise<{ person: Person; relation: Relation }[]> {
-    let queryResults = await this.neo4jService.read(
+    const queryResults = await this.neo4jService.read(
       `
       MATCH (movie:Movie)<-[relation]-(person:Person)
       WHERE id(movie) = $movie_id
@@ -31,7 +31,7 @@ export class PersonService {
   async findByPerson(
     person_id: number,
   ): Promise<{ person: Person; relation: Relation; movie: Movie }[]> {
-    let queryResults = await this.neo4jService.read(
+    const queryResults = await this.neo4jService.read(
       `
       MATCH (person:Person)-[relation]->(movie:Movie)
       WHERE id(person) = $person_id

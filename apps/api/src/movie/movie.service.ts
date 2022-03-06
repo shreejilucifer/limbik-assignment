@@ -11,7 +11,7 @@ export class MovieService {
     start_year,
     end_year,
   }: GetMovieByReleaseQueryDTO): Promise<Movie[]> {
-    let queryResults = await this.neo4jService.read(
+    const queryResults = await this.neo4jService.read(
       `
         MATCH (movie:Movie)
         WHERE movie.released >= $start_year AND movie.released <= $end_year

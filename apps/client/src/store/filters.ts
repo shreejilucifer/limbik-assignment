@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface FilterState {
+export interface IFilterState {
   start_year: number | undefined;
   end_year: number | undefined;
   selected_movie_id: number | undefined;
 }
 
-const initialState: FilterState = {
+const initialState: IFilterState = {
   start_year: undefined,
   end_year: undefined,
   selected_movie_id: undefined,
