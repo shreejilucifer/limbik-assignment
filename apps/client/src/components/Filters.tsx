@@ -44,6 +44,11 @@ const Filters = (props: Props) => {
         <Space direction="vertical">
           <Typography.Text>Select Year Range</Typography.Text>
           <DatePicker.RangePicker
+            disabledDate={(current) =>
+              current &&
+              (current > moment().endOf("day") ||
+                current < moment().set("year", 1888))
+            }
             value={
               start_year === undefined || end_year === undefined
                 ? undefined
